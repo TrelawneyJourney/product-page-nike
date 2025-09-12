@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+}
+
+:root {
+  font-family: "Roboto", sans-serif;
+}
+
+@import "tailwindcss";
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr 60px;
+  grid-template-areas: "header " "main" "footer";
+  height: 100vh;
+}
+/* Áreas */
+.header {
+  grid-area: header;
+  background: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer {
+  grid-area: footer;
+  background: #222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-product-page {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 100vh;
+}

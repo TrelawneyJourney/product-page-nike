@@ -1,0 +1,53 @@
+import SizeSelector from "../components/SizeSelector";
+import ColorSelector from "../components/ColorSelector";
+import { useEffect, useState } from "react";
+
+export default function ProductPage() {
+  const [product, setProduct] = useState(null);
+
+  const formatPrice = (precio) =>
+    new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+    }).format(precio);
+
+  useEffect(() => {
+    fetch("/data/products.json")
+      .then((res) => res.json())
+      .then((data) => setProduct(data[0]));
+  }, []);
+
+  return (
+    <div className="layout-product-page p-12">
+      {product && (
+        <>
+          {/**col-1 */}
+          <div className="flex flex-col gap-4">
+            <p className="font-bold text-sm uppercase">{product.marca}</p>
+            <h1 className="text-xl">{product.name}</h1>
+            <p className="text-neutral-500">{product.descripcion}</p>
+            <div className="flex">imagenes chicas</div>
+          </div>
+
+          {/**col-2 */}
+          <div className="overflow-hidden">
+            <div className="flex justify-center items-center w-full h-auto">
+              <img src={product.img.negro[0]} alt="" className="w-[500px]" />
+            </div>
+          </div>
+
+          {/**col-3 */}
+          <div className="">
+            <SizeSelector product={product} />
+            <div className="flex justify-between">
+              <p className="text-neutral-800 uppercase">precio</p>
+              <p className="font-extrabold">{formatPrice(product.precio)}</p>
+            </div>
+            <ColorSelector product={product} />
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
