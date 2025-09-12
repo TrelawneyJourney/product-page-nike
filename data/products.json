@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "marca": "Nike",
+    "name": "Nike P-6000",
+    "descripcion": "Las Nike P-6000 se inspiran en las 2006 Nike Air Pegasus para ofrecerte una combinación de estilo icónico que es transpirable, cómoda y evocadora del look de principios de los 2000.",
+    "precio": 109.99,
+    "talle": ["EU 36", "EU 36.5", "EU 37", "EU 38", "EU 39", "EU 40"],
+    "colores": [
+      { "nombre": "negro", "codigo": "#000000" },
+      { "nombre": "blanco", "codigo": "#ffffff" }
+    ],
+    "img": {
+      "negro": [
+        "/assets/products/NIKE+P-6000-negro.avif",
+        "/assets/products/NIKE+P-6000-negro-2.avif",
+        "/assets/products/NIKE+P-6000-negro-3.avif"
+      ],
+      "blanco": [
+        "/assets/products/NIKE+P-6000-blanco.avif",
+        "/assets/products/NIKE+P-6000-blanco-2.avif",
+        "/assets/products/NIKE+P-6000-blanco-3.avif"
+      ]
+    }
+  }
+]
