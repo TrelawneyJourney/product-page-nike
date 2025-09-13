@@ -2,16 +2,10 @@ import SizeSelector from "../components/SizeSelector";
 import ColorSelector from "../components/ColorSelector";
 import { useEffect, useState } from "react";
 import { getAssetUrl } from "../utils/getAssetUrl";
+import { formatPrice } from "../utils/formatPrice";
 
 export default function ProductPage() {
   const [product, setProduct] = useState(null);
-
-  const formatPrice = (precio) =>
-    new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 2,
-    }).format(precio);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/products.json`)
