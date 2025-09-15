@@ -6,11 +6,25 @@ import { formatPrice } from "../utils/formatPrice";
 
 export default function ProductPage() {
   const [product, setProduct] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedImage, setSelecteImage] = useState(null);
+
+  const handleSelectedColor = (color) => {
+    setSelectedColor(color);
+    setSelecteImage(product.img[color][0]);
+  };
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/products.json`)
       .then((res) => res.json())
-      .then((data) => setProduct(data[0]))
+      .then((data) => {
+        const prod = data[0];
+        setProduct(prod);
+
+        const color = prod.colores[0].nombre;
+        setSelectedColor(color);
+        setSelecteImage(prod.img[color][0]);
+      })
       .catch((err) => console.error("Error al cargar JSON:", err));
   }, []);
 
@@ -27,22 +41,28 @@ export default function ProductPage() {
             <h1 className="text-xl">{product.name}</h1>
             <p className="text-neutral-500">{product.descripcion}</p>
             <div className="flex gap-1 py-4">
-              {product.img.negro.map((img, i) => (
+              {product.img[selectedColor].map((img, i) => (
                 <img
                   key={i}
                   src={getAssetUrl(img)}
                   alt={product.name}
-                  className="w-[100px]"
+                  className={`w-[100px] cursor-pointer border-2 ${
+                    selectedImage === img
+                      ? "border-neutral-500 brightness-75"
+                      : "border-transparent"
+                  }`}
+                  onClick={() => setSelecteImage(img)}
                 />
               ))}
             </div>
           </div>
 
           {/**col-2 */}
+          {/** src={getAssetUrl(product.img.negro[0])}*/}
           <div className="overflow-hidden">
             <div className="flex justify-center items-center w-full h-auto">
               <img
-                src={getAssetUrl(product.img.negro[0])}
+                src={getAssetUrl(selectedImage)}
                 alt={product.name}
                 className="w-[500px]"
               />
@@ -56,7 +76,11 @@ export default function ProductPage() {
               <p className="text-neutral-800 uppercase">precio</p>
               <p className="font-extrabold">{formatPrice(product.precio)}</p>
             </div>
-            <ColorSelector product={product} />
+            <ColorSelector
+              product={product}
+              selectedColor={selectedColor}
+              setSelectedColor={handleSelectedColor}
+            />
           </div>
         </>
       )}
