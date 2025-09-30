@@ -3,9 +3,9 @@ import { TbRulerMeasure } from "react-icons/tb";
 export default function SizeSelector({ product }) {
   return (
     <div className="mb-6">
-      <div className="flex justify-between mb-4">
+      <div className="flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:justify-between mb-4">
         <p className="text-neutral-800 uppercase">selecciona tu talle</p>
-        <div className="flex justify-center items-center gap-1 text-sm text-neutral-600">
+        <div className="flex justify-start items-center gap-1 text-sm text-neutral-600">
           <TbRulerMeasure />
           <p>guía de talles</p>{" "}
         </div>

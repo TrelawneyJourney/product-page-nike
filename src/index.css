@@ -36,8 +36,27 @@
   align-items: center;
 }
 
+/*dentro de main*/
 .layout-product-page {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  height: 100vh;
+  grid-template-areas: "col1 col2 col3";
+  gap: 2rem;
+  height: 100%;
+}
+.col1 {
+  grid-area: col1;
+}
+.col2 {
+  grid-area: col2;
+}
+.col3 {
+  grid-area: col3;
+}
+
+@media (max-width: 768px) {
+  .layout-product-page {
+    grid-template-columns: 1fr;
+    grid-template-areas: "col2" "col1" "col3";
+  }
 }

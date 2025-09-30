@@ -36,11 +36,15 @@ export default function ProductPage() {
       {product && (
         <>
           {/**col-1 */}
-          <div className="flex flex-col gap-4">
-            <p className="font-bold text-sm uppercase">{product.marca}</p>
-            <h1 className="text-xl">{product.name}</h1>
-            <p className="text-neutral-500">{product.descripcion}</p>
-            <div className="flex gap-1 py-4">
+          <div className="col1 flex flex-col gap-4">
+            <p className="font-bold text-sm uppercase hidden md:block">
+              {product.marca}
+            </p>
+            <h1 className="text-xl hidden md:block">{product.name}</h1>
+            <p className="text-neutral-500 hidden md:block">
+              {product.descripcion}
+            </p>
+            <div className="flex flex-wrap gap-1 md:py-4 justify-center md:justify-start">
               {product.img[selectedColor].map((img, i) => (
                 <img
                   key={i}
@@ -59,7 +63,14 @@ export default function ProductPage() {
 
           {/**col-2 */}
           {/** src={getAssetUrl(product.img.negro[0])}*/}
-          <div className="overflow-hidden">
+          <div className="col2 flex flex-col gap-2">
+            <p className="font-bold text-sm uppercase md:hidden">
+              {product.marca}
+            </p>
+            <p className="text-xl md:hidden">{product.name}</p>
+            <p className="font-extrabold md:hidden">
+              {formatPrice(product.precio)}
+            </p>
             <div className="flex justify-center items-center w-full h-auto">
               <img
                 src={getAssetUrl(selectedImage)}
@@ -70,11 +81,15 @@ export default function ProductPage() {
           </div>
 
           {/**col-3 */}
-          <div className="">
+          <div className="col3">
             <SizeSelector product={product} />
             <div className="flex justify-between">
-              <p className="text-neutral-800 uppercase">precio</p>
-              <p className="font-extrabold">{formatPrice(product.precio)}</p>
+              <p className="text-neutral-800 uppercase hidden md:block">
+                precio
+              </p>
+              <p className="font-extrabold hidden md:block">
+                {formatPrice(product.precio)}
+              </p>
             </div>
             <ColorSelector
               product={product}
