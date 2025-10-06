@@ -5,7 +5,9 @@ export default function ColorSelector({
 }) {
   return (
     <div className="flex flex-col gap-2 mt-4">
-      <p className="text-neutral-800 uppercase">Color</p>
+      <p className="text-neutral-800 uppercase text-center md:text-start">
+        Color
+      </p>
       <div className="flex gap-2">
         {product.colores.map((color, ind) => (
           <div

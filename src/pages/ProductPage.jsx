@@ -44,7 +44,7 @@ export default function ProductPage() {
             <p className="text-neutral-500 hidden md:block">
               {product.descripcion}
             </p>
-            <div className="flex flex-wrap gap-1 md:py-4 justify-center md:justify-start">
+            <div className="flex flex-wrap xl:flex-nowrap gap-1 md:py-4 justify-center md:justify-start">
               {product.img[selectedColor].map((img, i) => (
                 <img
                   key={i}
@@ -82,6 +82,13 @@ export default function ProductPage() {
 
           {/**col-3 */}
           <div className="col3">
+            <div className="flex justify-center mb-6 md:hidden">
+              <ColorSelector
+                product={product}
+                selectedColor={selectedColor}
+                setSelectedColor={handleSelectedColor}
+              />
+            </div>
             <SizeSelector product={product} />
             <div className="flex justify-between">
               <p className="text-neutral-800 uppercase hidden md:block">
@@ -91,11 +98,13 @@ export default function ProductPage() {
                 {formatPrice(product.precio)}
               </p>
             </div>
-            <ColorSelector
-              product={product}
-              selectedColor={selectedColor}
-              setSelectedColor={handleSelectedColor}
-            />
+            <div className="hidden md:block">
+              <ColorSelector
+                product={product}
+                selectedColor={selectedColor}
+                setSelectedColor={handleSelectedColor}
+              />
+            </div>
           </div>
         </>
       )}
