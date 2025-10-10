@@ -10,7 +10,7 @@ export default function SearchBar() {
         </div>
         <input
           type="search"
-          className="block w-full p-2 ps-10 text-sm  rounded-full bg-gray-100"
+          className="block w-44 p-2 ps-10 text-sm  rounded-full bg-gray-100"
           placeholder="Buscar"
           required
         />

@@ -1,12 +1,10 @@
-import { IoSearch } from "react-icons/io5";
-import { LuUser } from "react-icons/lu";
-import { RiShoppingBagLine } from "react-icons/ri";
 import { IoMenu } from "react-icons/io5";
 import SearchBar from "./SearchBar";
 import TopBar from "./TopBar";
 import { menu, menuCompleto } from "../data/nav";
 import { useState } from "react";
 import NikeSvg from "../assets/svg/NikeSvg";
+import MenuIcons from "./MenuIcons";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(null);
@@ -38,18 +36,10 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <SearchBar />
-          <a href="#">
-            <IoSearch className="nav-items md:hidden" />
-          </a>
-          <a href="#">
-            <LuUser className="nav-items" />
-          </a>
-          <a href="#">
-            <RiShoppingBagLine className="nav-items" />
-          </a>
-          <IoMenu className="md:hidden" />
+          <MenuIcons />
+          <IoMenu className="md:hidden nav-items" />
         </div>
       </nav>
 
