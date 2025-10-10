@@ -1,0 +1,36 @@
+export const hombreMenu = {
+  "Lo más destacado": [
+    "Novedades para hombre",
+    "Superventas",
+    "Nuestra mejor selección para el gimnasio",
+  ],
+  Zapatillas: [
+    "Todas las zapatillas",
+    "Lifestyle",
+    "Jordan",
+    "Running",
+    "Fútbol",
+    "Baloncesto",
+    "Gym y training",
+    "Skateboard",
+    "Zapatillas personalizadas",
+  ],
+  Ropa: [
+    "Toda la ropa",
+    "Partes de arriba",
+    "Sudaderas",
+    "Pantalones cortos",
+    "Chándales",
+    "Pantalones y mallas",
+    "Chaquetas",
+    "Accesorios",
+  ],
+  Deporte: [
+    "Running",
+    "Fútbol",
+    "Baloncesto",
+    "Gym y training",
+    "Tenis",
+    "Golf",
+  ],
+};

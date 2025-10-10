@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
@@ -6,25 +7,19 @@
 
 :root {
   font-family: "Roboto", sans-serif;
+  color: #222;
 }
-
-@import "tailwindcss";
 
 .layout {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px 1fr 60px;
+  grid-template-rows: 1fr 1fr 60px;
   grid-template-areas: "header " "main" "footer";
   height: 100vh;
 }
 /* Áreas */
 .header {
   grid-area: header;
-  background: #222;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
 }
 
 .footer {
@@ -52,6 +47,12 @@
 }
 .col3 {
   grid-area: col3;
+}
+
+@layer utilities {
+  .nav-items {
+    @apply w-8 h-8 p-[4px] hover:bg-gray-400 hover:rounded-full;
+  }
 }
 
 @media (max-width: 768px) {

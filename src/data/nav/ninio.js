@@ -1,0 +1,35 @@
+export const ninioMenu = {
+  "Lo más destacado": [
+    "Novedades para niño/a",
+    "Superventas",
+    "Adolescente",
+    "Colección Nike x LEGO®",
+  ],
+  Zapatillas: [
+    "Todas las zapatillas",
+    "Lifestyle",
+    "Jordan",
+    "Fútbol",
+    "Running",
+    "Baloncesto",
+    "Educación física",
+  ],
+  Ropa: [
+    "Toda la ropa",
+    "Partes de arriba",
+    "Sudaderas",
+    "Chándales",
+    "Pantalones cortos",
+    "Pantalones y leggings",
+    "Chaquetas",
+    "Sujetadores deportivos",
+  ],
+  Accesorios: [
+    "Niño/a por edad",
+    "Adolescente (13-17 años)",
+    "Niño/a (7-12 años)",
+    "Niño/a pequeño/a (3-7 años)",
+    "Bebé e infantil (0-3 años)",
+  ],
+  Deporte: ["Running", "Fútbol", "Baloncesto", "Educación física"],
+};
