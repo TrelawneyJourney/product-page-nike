@@ -12,17 +12,19 @@ export const topBar = [
   "Inicia sesión",
 ];
 
-export const topBarAyuda = [
-  "Estado del pedido",
-  "Envío y entrega",
-  "Devoluciones",
-  "Guía de tallas",
-  "Contacta con nosotros",
-  "Políticas de privacidad",
-  "Condiciones de ventas",
-  "Términos de uso",
-  "Envíanos tus comentarios",
-];
+export const topBarAyuda = {
+  Ayuda: [
+    "Estado del pedido",
+    "Envío y entrega",
+    "Devoluciones",
+    "Guía de tallas",
+    "Contacta con nosotros",
+    "Políticas de privacidad",
+    "Condiciones de ventas",
+    "Términos de uso",
+    "Envíanos tus comentarios",
+  ],
+};
 
 export const menu = [
   "Novedades",

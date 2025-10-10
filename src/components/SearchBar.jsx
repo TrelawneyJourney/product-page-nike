@@ -2,7 +2,7 @@ import { IoSearch } from "react-icons/io5";
 
 export default function SearchBar() {
   return (
-    <form className="">
+    <form className="hidden md:flex">
       <label className="sr-only ">Search</label>
       <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

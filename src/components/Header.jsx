@@ -6,20 +6,10 @@ import SearchBar from "./SearchBar";
 import TopBar from "./TopBar";
 import { menu, menuCompleto } from "../data/nav";
 import { useState } from "react";
+import NikeSvg from "../assets/svg/NikeSvg";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(null);
-  // const [timeout, setTimeout] = useState(null);
-
-  // function handleMouseEnter(item) {
-  //   if (timeout) clearTimeout(timeout);
-  //   setMenuActive(item);
-  // }
-
-  // function handleMouseLeave() {
-  //   const id = setTimeout(() => setMenuActive(null), 150);
-  //   setTimeout(id);
-  // }
 
   return (
     <div
@@ -27,39 +17,27 @@ export default function Header() {
       onMouseLeave={() => setMenuActive(null)}
     >
       <TopBar />
-      <nav className="w-full flex justify-between items-center px-10 ">
+
+      <nav className="w-full flex justify-between items-center px-4 md:px-10 ">
         <div className="logo">
           <a href="">
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              width="74px"
-              height="74px"
-              viewBox="0 0 24 24"
-              role="img"
-              fill="none"
-            >
-              <path
-                fill="currentColor"
-                fillRule="evenodd"
-                d="M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+            <NikeSvg />
           </a>
         </div>
+
         {/* menu  */}
         <ul className="hidden md:flex">
           {menu.map((item) => (
             <li
               key={item}
               onMouseEnter={() => setMenuActive(item)}
-              className="px-3 py-1 font-semibold hover:border-b-2"
+              className="px-3 py-1 font-semibold hover:underline hover:decoration-2 hover:underline-offset-4 cursor-pointer"
             >
               {item}
             </li>
           ))}
         </ul>
+
         <div className="flex gap-2">
           <SearchBar />
           <a href="#">
@@ -76,22 +54,27 @@ export default function Header() {
       </nav>
 
       {menuActive && menuCompleto[menuActive] && (
-        <div className="absolute left-0 top-full w-full bg-white shadow-lg p-8 grid grid-cols-4 gap-8 z-50">
-          {Object.entries(menuCompleto[menuActive]).map(([cat, links]) => (
-            <div key={cat} className="text-sm">
-              <h3 className="font-semibold mb-2">{cat}</h3>
-              <ul className="">
-                {links.map((link) => (
-                  <li
-                    key={link}
-                    className="text-gray-600 hover:text-black mb-2"
-                  >
-                    {link}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="absolute left-0 top-full w-full bg-white shadow-lg flex justify-center py-6 z-50">
+          <div className="flex gap-8 max-w-6xl w-full justify-center">
+            {Object.entries(menuCompleto[menuActive]).map(([cat, links]) => (
+              <div
+                key={cat}
+                className="text-sm flex flex-col basis-[180px] max-w-[220px] shrink-0"
+              >
+                <h3 className="font-semibold mb-2">{cat}</h3>
+                <ul className="">
+                  {links.map((link) => (
+                    <li
+                      key={link}
+                      className="text-gray-600 hover:text-black mb-2 leading-snug break-words whitespace-normal cursor-pointer"
+                    >
+                      {link}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
