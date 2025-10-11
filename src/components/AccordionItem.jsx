@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function AccordionItem({ title, links }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +12,17 @@ export default function AccordionItem({ title, links }) {
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
-        <span>{isOpen ? "-" : "+"}</span>
+        <span>{isOpen ? "-" : <MdKeyboardArrowDown />}</span>
       </button>
 
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-40" : "max-h-0"
+          isOpen ? "max-h-60" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-2 pl-4 pb-2">
           {links.map((link) => (
-            <li key={link} className="text-sm text-purple-700">
+            <li key={link} className="text-sm text-gray-600">
               {link}
             </li>
           ))}

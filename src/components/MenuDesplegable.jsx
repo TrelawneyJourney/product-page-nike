@@ -1,11 +1,14 @@
 import { IoMenu } from "react-icons/io5";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
 import { menu, menuCompleto } from "../data/nav";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AccordionItem from "./AccordionItem";
 
 export default function MenuDesplegable() {
-  const [menuOpen, setmenuOpen] = useState(null);
+  const [menuOpen, setmenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
+  const menuRef = useRef();
 
   const toggleMenu = () => {
     setmenuOpen((prev) => !prev);
@@ -14,6 +17,20 @@ export default function MenuDesplegable() {
   const handleItemClick = (item) => {
     setActiveItem((prev) => (prev === item ? null : item));
   };
+
+  useEffect(() => {
+    const handleClickOut = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setmenuOpen(false);
+      }
+    };
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOut);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOut);
+    };
+  }, [menuOpen]);
 
   return (
     <div className="relative">
@@ -24,16 +41,21 @@ export default function MenuDesplegable() {
 
       {/* menu desplegable mobile */}
       {menuOpen && (
-        <div className="absolute right-0 top-full w-48 px-4 bg-white shadow-md">
-          <ul className="flex flex-col">
+        <div
+          ref={menuRef}
+          className="absolute right-0 top-full w-60 px-4 py-6 bg-white shadow-md"
+        >
+          <ul className="flex flex-col gap-3">
             {menu.map((i) => (
-              <li key={i} className="border-b border-gray-200">
+              <li key={i} className="px-3 py-1 font-semibold cursor-pointer">
                 <button
                   onClick={() => handleItemClick(i)}
                   className="w-full flex justify-between items-center"
                 >
                   {i}
-                  <span>{activeItem === i ? "-" : "+"}</span>
+                  <span>
+                    {activeItem === i ? <RxCross2 /> : <MdKeyboardArrowDown />}
+                  </span>
                 </button>
 
                 {activeItem === i && menuCompleto[i] && (
