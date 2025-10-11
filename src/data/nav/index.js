@@ -43,3 +43,22 @@ export const menuCompleto = {
   Deportes: deporteMenu,
   Ofertas: ofertaMenu,
 };
+
+export const menuMobile = [
+  {
+    title: "Ayuda",
+    icon: 
+  },
+  {
+    title: "Cesta",
+    icon:
+  },
+  {
+    title: "Pedidos",
+    icon: 
+  },
+  {
+    title: "Buscar una tienda",
+    icon:
+  },
+]

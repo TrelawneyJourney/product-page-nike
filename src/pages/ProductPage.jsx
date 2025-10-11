@@ -3,6 +3,7 @@ import ColorSelector from "../components/ColorSelector";
 import { useEffect, useState } from "react";
 import { getAssetUrl } from "../utils/getAssetUrl";
 import { formatPrice } from "../utils/formatPrice";
+import { MdFavoriteBorder } from "react-icons/md";
 
 export default function ProductPage() {
   const [product, setProduct] = useState(null);
@@ -89,7 +90,9 @@ export default function ProductPage() {
                 setSelectedColor={handleSelectedColor}
               />
             </div>
+
             <SizeSelector product={product} />
+
             <div className="flex justify-between">
               <p className="text-neutral-800 uppercase hidden md:block">
                 precio
@@ -98,12 +101,22 @@ export default function ProductPage() {
                 {formatPrice(product.precio)}
               </p>
             </div>
+
             <div className="hidden md:block">
               <ColorSelector
                 product={product}
                 selectedColor={selectedColor}
                 setSelectedColor={handleSelectedColor}
               />
+            </div>
+
+            <div className="flex flex-col gap-3 my-4">
+              <button className="bg-black text-white py-4 px-6 rounded-full hover:bg-neutral-600">
+                Añadir a la cesta
+              </button>
+              <button className="flex justify-center gap-1 items-center bg-white border border-gray-400 py-4 px-6 rounded-full hover:border-black">
+                Favorito <MdFavoriteBorder />
+              </button>
             </div>
           </div>
         </>

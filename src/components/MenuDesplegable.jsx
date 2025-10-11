@@ -4,6 +4,8 @@ import { RxCross2 } from "react-icons/rx";
 import { menu, menuCompleto } from "../data/nav";
 import { useEffect, useRef, useState } from "react";
 import AccordionItem from "./AccordionItem";
+import { SiJordan } from "react-icons/si";
+import ConverseSvg from "../assets/svg/ConverseSvg";
 
 export default function MenuDesplegable() {
   const [menuOpen, setmenuOpen] = useState(false);
@@ -43,9 +45,9 @@ export default function MenuDesplegable() {
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute right-0 top-full w-60 px-4 py-6 bg-white shadow-md"
+          className="absolute right-0 top-full w-72 px-6 py-6 bg-white shadow-md z-50"
         >
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-3 mb-10">
             {menu.map((i) => (
               <li key={i} className="px-3 py-1 font-semibold cursor-pointer">
                 <button
@@ -68,6 +70,37 @@ export default function MenuDesplegable() {
               </li>
             ))}
           </ul>
+
+          {/* jordan & converse */}
+          <div className="flex flex-col gap-2 mb-10">
+            <div className="flex justify-start items-baseline gap-2 text-lg font-semibold cursor-pointer">
+              <SiJordan className="w-6 h-6" />
+              <p>Jordan</p>
+            </div>
+            <div className="flex justify-start items-center gap-2 text-lg font-semibold cursor-pointer">
+              <ConverseSvg />
+              <p>Converse</p>
+            </div>
+          </div>
+
+          {/* member */}
+          <div className="flex flex-col gap-8 py-12 ">
+            <p className="text-neutral-600 text-xl">
+              Hazte Nike Member para descubrir los mejores productos, la
+              motivación que necesitas e historias del deporte.{" "}
+              <span className="text-black font-bold cursor-pointer">
+                Más información.
+              </span>
+            </p>
+            <div className="flex gap-2">
+              <button className="bg-black text-white rounded-full p-2 hover:bg-neutral-600">
+                Únete a nosotros
+              </button>
+              <button className="bg-white border border-neutral-400 rounded-full p-2">
+                Iniciar sesión
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
