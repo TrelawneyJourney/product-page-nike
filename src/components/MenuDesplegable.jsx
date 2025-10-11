@@ -35,7 +35,7 @@ export default function MenuDesplegable() {
   return (
     <div className="relative">
       {/*hamburger button */}
-      <button onClick={toggleMenu}>
+      <button onClick={toggleMenu} className="flex items-center">
         <IoMenu className="lg:hidden nav-items" />
       </button>
 
