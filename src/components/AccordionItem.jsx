@@ -21,7 +21,7 @@ export default function AccordionItem({ title, links }) {
       >
         <ul className="flex flex-col gap-2 pl-4 pb-2">
           {links.map((link) => (
-            <li key={link} className="text-sm text-gray-700">
+            <li key={link} className="text-sm text-purple-700">
               {link}
             </li>
           ))}

@@ -1,20 +1,12 @@
-import { IoMenu } from "react-icons/io5";
 import SearchBar from "./SearchBar";
-
 import { menu, menuCompleto } from "../data/nav";
 import { useState } from "react";
 import NikeSvg from "../assets/svg/NikeSvg";
 import MenuIcons from "./MenuIcons";
-import AccordionItem from "./AccordionItem";
+import MenuDesplegable from "./MenuDesplegable";
 
 export default function NavBar() {
   const [menuActive, setMenuActive] = useState(null);
-  const [menuOpen, setmenuOpen] = useState(null);
-  const [menuActiveAcc, setMenuActiveAcc] = useState(null);
-
-  const toggleMenu = () => {
-    setmenuOpen((prev) => !prev);
-  };
 
   return (
     <nav className="relative" onMouseLeave={() => setMenuActive(null)}>
@@ -43,9 +35,7 @@ export default function NavBar() {
         <div className="flex items-center gap-2">
           <SearchBar />
           <MenuIcons />
-          <button onClick={toggleMenu}>
-            <IoMenu className="lg:hidden nav-items" />
-          </button>
+          <MenuDesplegable />
         </div>
       </div>
 
@@ -71,37 +61,6 @@ export default function NavBar() {
                 </ul>
               </div>
             ))}
-          </div>
-        </div>
-      )}
-
-      {/* menu desplegable mobile */}
-      {menuOpen && (
-        <div className="absolute right-0 top-full w-48 px-4 bg-white shadow-md">
-          <div>
-            <ul>
-              {menu.map((i) => (
-                <li
-                  key={i}
-                  onMouseEnter={() => setMenuActiveAcc(i)}
-                  className="px-3 py-1 font-semibold hover:underline hover:decoration-2 hover:underline-offset-4 cursor-pointer"
-                >
-                  {i}
-                </li>
-              ))}
-            </ul>
-
-            {menuActiveAcc && menuCompleto[menuActiveAcc] && (
-              <div className="absolute left-0 top-full w-full bg-white shadow-lg flex justify-center py-6 z-50">
-                <div className="flex gap-8 max-w-6xl w-full justify-center">
-                  {Object.entries(menuCompleto[menuActiveAcc]).map(
-                    ([cat, links]) => (
-                      <AccordionItem title={cat} links={links} />
-                    )
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       )}
