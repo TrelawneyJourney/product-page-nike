@@ -4,6 +4,10 @@ import { mujerMenu } from "./mujer";
 import { ninioMenu } from "./ninio";
 import { deporteMenu } from "./deporte";
 import { ofertaMenu } from "./oferta";
+import { MdHelpOutline } from "react-icons/md";
+import { RiShoppingBagLine } from "react-icons/ri";
+import { MdStorefront } from "react-icons/md";
+import { BsBoxSeam } from "react-icons/bs";
 
 export const topBar = [
   "Buscar una tienda",
@@ -47,18 +51,18 @@ export const menuCompleto = {
 export const menuMobile = [
   {
     title: "Ayuda",
-    icon: 
+    icon: MdHelpOutline,
   },
   {
     title: "Cesta",
-    icon:
+    icon: RiShoppingBagLine,
   },
   {
     title: "Pedidos",
-    icon: 
+    icon: BsBoxSeam,
   },
   {
     title: "Buscar una tienda",
-    icon:
+    icon: MdStorefront,
   },
-]
+];

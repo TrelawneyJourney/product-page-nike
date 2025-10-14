@@ -1,7 +1,7 @@
 import { IoMenu } from "react-icons/io5";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import { menu, menuCompleto } from "../data/nav";
+import { menu, menuCompleto, menuMobile } from "../data/nav";
 import { useEffect, useRef, useState } from "react";
 import AccordionItem from "./AccordionItem";
 import { SiJordan } from "react-icons/si";
@@ -92,14 +92,27 @@ export default function MenuDesplegable() {
                 Más información.
               </span>
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 font-bold">
               <button className="bg-black text-white rounded-full p-2 hover:bg-neutral-600">
                 Únete a nosotros
               </button>
-              <button className="bg-white border border-neutral-400 rounded-full p-2">
+              <button className="bg-white border border-neutral-400 rounded-full p-2 hover:bg-neutral-500">
                 Iniciar sesión
               </button>
             </div>
+          </div>
+          <div className="flex">
+            <ul>
+              {menuMobile.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <li className="flex items-center gap-3 mb-3 font-semibold cursor-pointer">
+                    <Icon className="text-lg" />
+                    {item.title}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       )}
