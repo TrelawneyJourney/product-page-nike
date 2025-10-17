@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getAssetUrl } from "../utils/getAssetUrl";
 import { formatPrice } from "../utils/formatPrice";
 import { MdFavoriteBorder } from "react-icons/md";
+import CarruselPersonas from "../components/CarruselPersonas";
 
 export default function ProductPage() {
   const [product, setProduct] = useState(null);
@@ -118,6 +119,21 @@ export default function ProductPage() {
                 Favorito <MdFavoriteBorder />
               </button>
             </div>
+          </div>
+
+          <div className="row2 border-amber-400 flex flex-col gap-3  w-full max-w-full">
+            <p className="text-2xl font-semibold">
+              El estilo de otras personas
+            </p>
+            <p>
+              Carga tu foto o menciona a @Nike en Instagram para tener la
+              oportunidad de aparecer en nuestras redes.
+            </p>
+            <button className="w-44 border border-neutral-400 rounded-full py-1 px-6 hover:border-black cursor-pointer">
+              Sube Tu Foto
+            </button>
+
+            <CarruselPersonas />
           </div>
         </>
       )}

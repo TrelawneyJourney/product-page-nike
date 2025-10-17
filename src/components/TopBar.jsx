@@ -7,7 +7,7 @@ export default function TopBar() {
   const [topActive, setTopActive] = useState(null);
 
   return (
-    <div className="hidden md:flex justify-between bg-gray-100 py-2 px-10">
+    <div className="hidden lg:flex justify-between bg-gray-100 py-2 px-10">
       <div className="flex gap-4">
         <a href="">
           <JordanSvg />
