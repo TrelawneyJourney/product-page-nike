@@ -8,7 +8,10 @@ export default function Footer() {
         <p>© 2025 Nike, Inc. Todos los derechos reservados</p>
         <ul className="flex flex-col lg:flex-row gap-3">
           {menuFooter.map((item) => (
-            <li key={item} className="cursor-pointer">
+            <li
+              key={item}
+              className="cursor-pointer focus:text-black hover:text-black"
+            >
               {item}
             </li>
           ))}

@@ -28,6 +28,9 @@ export default function MenuDesplegable() {
     };
     if (menuOpen) {
       document.addEventListener("mousedown", handleClickOut);
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOut);
@@ -43,78 +46,91 @@ export default function MenuDesplegable() {
 
       {/* menu desplegable mobile */}
       {menuOpen && (
-        <div
-          ref={menuRef}
-          className="absolute right-0 top-full w-72 px-6 py-6 bg-white shadow-md z-50"
-        >
-          <ul className="flex flex-col gap-3 mb-10">
-            {menu.map((i) => (
-              <li key={i} className="px-3 py-1 font-semibold cursor-pointer">
-                <button
-                  onClick={() => handleItemClick(i)}
-                  className="w-full flex justify-between items-center"
+        <>
+          <div className="fixed inset-0 bg-black/40 z-40" />
+          <div
+            ref={menuRef}
+            className="fixed top-0 right-0 w-72 max-h-screen bg-white px-6 py-6 shadow-md z-50 transform transition-transform duration-300 overflow-y-auto flex flex-col"
+          >
+            <button onClick={toggleMenu} className="self-end mb-4">
+              <RxCross2 className="nav-items" />
+            </button>
+            <ul className="flex flex-col gap-3 mb-10">
+              {menu.map((i) => (
+                <li
+                  key={i}
+                  className="px-3 py-1 font-semibold cursor-pointer hover:text-neutral-400"
                 >
-                  {i}
-                  <span>
-                    {activeItem === i ? <RxCross2 /> : <MdKeyboardArrowDown />}
-                  </span>
-                </button>
+                  <button
+                    onClick={() => handleItemClick(i)}
+                    className="w-full flex justify-between items-center"
+                  >
+                    {i}
+                    <span>
+                      {activeItem === i ? (
+                        <RxCross2 />
+                      ) : (
+                        <MdKeyboardArrowDown />
+                      )}
+                    </span>
+                  </button>
 
-                {activeItem === i && menuCompleto[i] && (
-                  <div className="pl-2 transition-all duration-300">
-                    {Object.entries(menuCompleto[i]).map(([cat, links]) => (
-                      <AccordionItem key={cat} title={cat} links={links} />
-                    ))}
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          {/* jordan & converse */}
-          <div className="flex flex-col gap-2 mb-10">
-            <div className="flex justify-start items-baseline gap-2 text-lg font-semibold cursor-pointer">
-              <SiJordan className="w-6 h-6" />
-              <p>Jordan</p>
-            </div>
-            <div className="flex justify-start items-center gap-2 text-lg font-semibold cursor-pointer">
-              <ConverseSvg />
-              <p>Converse</p>
-            </div>
-          </div>
-
-          {/* member */}
-          <div className="flex flex-col gap-8 py-12 ">
-            <p className="text-neutral-600 text-xl">
-              Hazte Nike Member para descubrir los mejores productos, la
-              motivación que necesitas e historias del deporte.{" "}
-              <span className="text-black font-bold cursor-pointer">
-                Más información.
-              </span>
-            </p>
-            <div className="flex gap-2 font-bold">
-              <button className="bg-black text-white rounded-full p-2 hover:bg-neutral-600">
-                Únete a nosotros
-              </button>
-              <button className="bg-white border border-neutral-400 rounded-full p-2 hover:bg-neutral-500">
-                Iniciar sesión
-              </button>
-            </div>
-          </div>
-          <div className="flex">
-            <ul>
-              {menuMobile.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <li className="flex items-center gap-3 mb-3 font-semibold cursor-pointer">
-                    <Icon className="text-lg" />
-                    {item.title}
-                  </li>
-                );
-              })}
+                  {activeItem === i && menuCompleto[i] && (
+                    <div className="pl-2 transition-all duration-300">
+                      {Object.entries(menuCompleto[i]).map(([cat, links]) => (
+                        <AccordionItem key={cat} title={cat} links={links} />
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
             </ul>
+
+            {/* jordan & converse */}
+            <div className="flex flex-col gap-2 mb-10">
+              <div className="flex justify-start items-baseline gap-2 text-lg font-semibold cursor-pointer hover:text-neutral-400">
+                <SiJordan className="w-6 h-6" />
+                <p>Jordan</p>
+              </div>
+              <div className="flex justify-start items-center gap-2 text-lg font-semibold cursor-pointer hover:text-neutral-400">
+                <ConverseSvg />
+                <p>Converse</p>
+              </div>
+            </div>
+
+            {/* member */}
+            <div className="flex flex-col gap-8 py-12 ">
+              <p className="text-neutral-600 text-xl">
+                Hazte Nike Member para descubrir los mejores productos, la
+                motivación que necesitas e historias del deporte.{" "}
+                <span className="text-black font-bold cursor-pointer">
+                  Más información.
+                </span>
+              </p>
+              <div className="flex gap-2 font-bold">
+                <button className="bg-black text-white rounded-full p-2 hover:bg-neutral-600">
+                  Únete a nosotros
+                </button>
+                <button className="bg-white border border-neutral-400 rounded-full p-2 hover:bg-neutral-500">
+                  Iniciar sesión
+                </button>
+              </div>
+            </div>
+            <div className="flex">
+              <ul>
+                {menuMobile.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <li className="flex items-center gap-3 mb-3 font-semibold cursor-pointer">
+                      <Icon className="text-lg" />
+                      {item.title}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
