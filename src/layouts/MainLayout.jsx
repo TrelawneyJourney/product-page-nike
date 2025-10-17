@@ -1,5 +1,6 @@
 import ProductPage from "../pages/ProductPage";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function MainLayout() {
   return (
@@ -10,7 +11,9 @@ function MainLayout() {
       <main className="main">
         <ProductPage />
       </main>
-      <footer className="footer">Footer</footer>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
   );
 }

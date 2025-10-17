@@ -66,3 +66,11 @@ export const menuMobile = [
     icon: MdStorefront,
   },
 ];
+
+export const menuFooter = [
+  "Guías",
+  "Términos de uso",
+  "Aviso legal",
+  "Política de privacidad y cookies",
+  "Configuración de privacidad y cookies",
+];
