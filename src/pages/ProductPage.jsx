@@ -121,7 +121,7 @@ export default function ProductPage() {
             </div>
           </div>
 
-          <div className="row2 border-amber-400 flex flex-col gap-3  w-full max-w-full">
+          <div className="row2 border-amber-400 flex flex-col gap-3  w-full max-w-full overflow-hidden">
             <p className="text-2xl font-semibold">
               El estilo de otras personas
             </p>

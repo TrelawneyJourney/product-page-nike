@@ -52,7 +52,7 @@
 
 @layer utilities {
   .nav-items {
-    @apply w-8 h-8 p-[4px] hover:bg-gray-400 hover:rounded-full;
+    @apply w-8 h-8 p-[4px] hover:bg-gray-400 hover:rounded-full focus:bg-gray-400 focus:rounded-full active:bg-gray-400 active:rounded-full;
   }
 }
 

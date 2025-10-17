@@ -116,12 +116,12 @@ export default function MenuDesplegable() {
                 </button>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex mb-4">
               <ul>
                 {menuMobile.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <li className="flex items-center gap-3 mb-3 font-semibold cursor-pointer">
+                    <li className="flex items-center gap-3 mb-3 font-semibold cursor-pointer hover:text-neutral-500 focus:text-neutral-500 active:text-neutral-500">
                       <Icon className="text-lg" />
                       {item.title}
                     </li>
